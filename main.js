@@ -9,13 +9,6 @@ const { resolve } = require('path');
 
 client.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-
-    client.commands.set(command.name, command);
-}
-
 //봇이 제대로 시작되었을 경우 print
 client.once('ready', async () => {
     console.log('AstroTranslator is Online!');
